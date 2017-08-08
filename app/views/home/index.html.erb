@@ -1,14 +1,24 @@
-<ul>
-	<% if corsair_signed_in? %>
-	<h1><%= current_corsair.username %>, vous êtes connectés</h1>
-		<%= render "devise/shared/index" %>
-	<% else %>
-	<h1>Se Connecter</h1>
+
+<% if corsair_signed_in? %>
+	<ul>
+		<li>
+			<%= link_to "Sign Out", destroy_corsair_session_path, method: :delete %>
+		</li>	
+		<li>
+			<%= link_to "Setting", edit_corsair_registration_path %>
+		</li>
+	</ul>
+	<h1><%= current_corsair.username %>, tu es bien connecté</h1>
+	<p> <%= link_to "Commencer à Gossiper", new_gossip_path %>  </p>
+
+<% else %>
+	<ul>
 		<li>
 			<%= link_to "Sign In", new_corsair_session_path%>
 		</li>
 		<li>
 			<%= link_to "Sign Up", new_corsair_registration_path%>
 		</li>
-	<% end %>
-</ul>
+	</ul>
+	<h1>Bonjour cher Gossip, connecte toi pour commencer à Gossiper !</h1>
+<% end %>
