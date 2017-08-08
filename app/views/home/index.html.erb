@@ -1,0 +1,14 @@
+<ul>
+	<% if corsair_signed_in? %>
+	<h1><%= current_corsair.username %>, vous êtes connectés</h1>
+		<%= render "devise/shared/index" %>
+	<% else %>
+	<h1>Se Connecter</h1>
+		<li>
+			<%= link_to "Sign In", new_corsair_session_path%>
+		</li>
+		<li>
+			<%= link_to "Sign Up", new_corsair_registration_path%>
+		</li>
+	<% end %>
+</ul>
